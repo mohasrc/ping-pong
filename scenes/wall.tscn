@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://k8bwb1i4148j"]
+
+[ext_resource type="Texture2D" uid="uid://d4fy1lhjuxr3g" path="res://sprites/PingPongWalls.png" id="1_wykyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvhfp"]
+size = Vector2(1280, 32)
+
+[node name="Wall" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wykyb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_uvhfp")

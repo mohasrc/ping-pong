@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjnvp0cw7davb"]
+
+[ext_resource type="PackedScene" uid="uid://k8bwb1i4148j" path="res://scenes/wall.tscn" id="1_e05a3"]
+[ext_resource type="Texture2D" uid="uid://bclb83xclmo26" path="res://sprites/PingPongCenterLine.png" id="1_wl4x5"]
+[ext_resource type="PackedScene" uid="uid://bhuy4s8sayvyx" path="res://scenes/paddle.tscn" id="3_7ft05"]
+[ext_resource type="Texture2D" uid="uid://h141h3i33pvk" path="res://sprites/PingPongPaddleRed.png" id="4_4ag8t"]
+[ext_resource type="Script" uid="uid://dii12n8ab5cra" path="res://scripts/paddleRed.gd" id="4_dpxgc"]
+[ext_resource type="Texture2D" uid="uid://bovmo6rs3xr7j" path="res://sprites/PingPongPaddleBlue.png" id="5_dpxgc"]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Center Line" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_wl4x5")
+
+[node name="Wall top" parent="." instance=ExtResource("1_e05a3")]
+position = Vector2(640, 16)
+
+[node name="Wall bottom" parent="." instance=ExtResource("1_e05a3")]
+position = Vector2(640, 704)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(640, 360)
+
+[node name="Paddle Red" parent="." instance=ExtResource("3_7ft05")]
+position = Vector2(1248, 360)
+script = ExtResource("4_dpxgc")
+
+[node name="PingPongPaddleRed" type="Sprite2D" parent="Paddle Red"]
+texture = ExtResource("4_4ag8t")
+
+[node name="Paddle Blue" parent="." instance=ExtResource("3_7ft05")]
+position = Vector2(32, 360)
+
+[node name="PingPongPaddleBlue" type="Sprite2D" parent="Paddle Blue"]
+texture = ExtResource("5_dpxgc")
