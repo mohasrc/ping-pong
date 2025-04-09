@@ -9,11 +9,11 @@ func _physics_process(delta: float) -> void:
 	if coll_info:
 		if coll_info.get_normal() == Vector2(1, 0) or coll_info.get_normal() == Vector2(-1, 0):
 			motion_vector *= Vector2(-1, 1)
-			print(coll_info.get_normal())
+			#print(coll_info.get_normal())
 
 		if coll_info.get_normal() == Vector2(0, 1) or coll_info.get_normal() == Vector2(0, -1):
 			motion_vector *= Vector2(1, -1)
-			print(coll_info.get_normal())
+			#print(coll_info.get_normal())
 
 
 func _process(delta: float) -> void:
