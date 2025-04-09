@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjnvp0cw7davb"]
+[gd_scene load_steps=10 format=3 uid="uid://cjnvp0cw7davb"]
 
 [ext_resource type="PackedScene" uid="uid://k8bwb1i4148j" path="res://scenes/wall.tscn" id="1_e05a3"]
 [ext_resource type="Texture2D" uid="uid://bclb83xclmo26" path="res://sprites/PingPongCenterLine.png" id="1_wl4x5"]
 [ext_resource type="PackedScene" uid="uid://bhuy4s8sayvyx" path="res://scenes/paddle.tscn" id="3_7ft05"]
 [ext_resource type="Texture2D" uid="uid://h141h3i33pvk" path="res://sprites/PingPongPaddleRed.png" id="4_4ag8t"]
 [ext_resource type="Texture2D" uid="uid://bovmo6rs3xr7j" path="res://sprites/PingPongPaddleBlue.png" id="5_dpxgc"]
+[ext_resource type="Texture2D" uid="uid://jma5l153gwt" path="res://sprites/PingPongBall.png" id="6_4ag8t"]
+[ext_resource type="Script" uid="uid://bxg88v382nfjb" path="res://scripts/ball.gd" id="6_dpxgc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4ag8t"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpxgc"]
+radius = 16.0
 
 [node name="Arena" type="Node2D"]
 
@@ -29,3 +38,16 @@ paddle_sprite_texture = ExtResource("4_4ag8t")
 position = Vector2(32, 360)
 color = 1
 paddle_sprite_texture = ExtResource("5_dpxgc")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(640, 360)
+physics_material_override = SubResource("PhysicsMaterial_4ag8t")
+gravity_scale = 0.0
+script = ExtResource("6_dpxgc")
+motion_vector = Vector2(10, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("6_4ag8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_dpxgc")

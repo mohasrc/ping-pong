@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6rbuq5mgl3vr"]
+
+[ext_resource type="Script" uid="uid://bxg88v382nfjb" path="res://scripts/ball.gd" id="1_cxlvu"]
+[ext_resource type="Texture2D" uid="uid://jma5l153gwt" path="res://sprites/PingPongBall.png" id="2_f7cbr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4ag8t"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpxgc"]
+radius = 16.0
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_4ag8t")
+gravity_scale = 0.0
+script = ExtResource("1_cxlvu")
+motion_vector = Vector2(10, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f7cbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dpxgc")
